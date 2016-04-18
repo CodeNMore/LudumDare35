@@ -1,6 +1,5 @@
 package dev.codenmore.ld35;
 
-import com.badlogic.gdx.Application.ApplicationType;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
@@ -30,13 +29,12 @@ public class Main extends ApplicationAdapter {
 	public void create(){
 		// Graphics stuff
 		batch = new SpriteBatch();
-		cam = new OrthographicCamera(WIDTH, HEIGHT);
+		cam = new OrthographicCamera();
 		cam.setToOrtho(false);
 		viewport = new FitViewport(WIDTH, HEIGHT, cam);
 		Gdx.gl.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-		// Resize desktop window
-		if(Gdx.app.getType() == ApplicationType.Desktop)
-			Gdx.graphics.setWindowedMode(WIDTH * WINSCALE, HEIGHT * WINSCALE);
+		// Resize window
+		viewport.update(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
 		// States
 		State.pushState(new LoadingState(this, true));
 	}

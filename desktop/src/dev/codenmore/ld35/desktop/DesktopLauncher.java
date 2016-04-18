@@ -11,8 +11,8 @@ public class DesktopLauncher {
 		
 		// Window setup
 		config.title = Main.TITLE;
-		config.width = Main.WIDTH;
-		config.height = Main.HEIGHT;
+		config.width = Main.WIDTH * Main.WINSCALE;
+		config.height = Main.HEIGHT * Main.WINSCALE;
 		
 		// Texture packer stuff
 //		Settings s = new Settings();
